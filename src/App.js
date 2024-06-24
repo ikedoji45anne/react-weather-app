@@ -6,7 +6,7 @@ function App() {
     <div className="App">
      <h1> Weather App </h1>
      <footer>
-      This project was coded by Ikedoji Anne and is[" "]
+      This project was coded by Ikedoji Anne and is 
       <a href="https://github.com/ikedoji45anne/react-weather-app" target="_blank">
       open-sourced on github
       </a>
