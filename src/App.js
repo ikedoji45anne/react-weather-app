@@ -11,7 +11,7 @@ import './App.css';
      <footer>
       
       This project was coded by{" "} Ikedoji Anne and is{" "} 
-      <a href="https://github.com/ikedoji45anne/react-weather-app" target="_blank">
+      <a href="https://github.com/ikedoji45anne/react-weather-app" target="_blank" rel="noreferrer">
       open-sourced on github
       </a>
      </footer>
