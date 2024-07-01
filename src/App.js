@@ -7,7 +7,7 @@ import './App.css';
     <div className="App">
       <div className="container">
      
-     <Weather />
+     <Weather defaultCity= "New york"/>
      <footer>
       
       This project was coded by{" "} Ikedoji Anne and is{" "} 
