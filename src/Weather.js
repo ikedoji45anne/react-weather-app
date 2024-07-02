@@ -10,25 +10,25 @@ import "./Weather.css";
 export default function Weather(props) {
     
     const [weatherData, setWeatherData] = useState({ready: false});
-    let ready: true;
+
     
     function handleResponse(response) {
         console.log(response.data);
         setWeatherData({
-            
-            
-          temperature: response.data.main.temp,
-          description: response.data.weather[0].description,
+          temperature: response.data.temperature.current,
+          description: response.data.condition.description,
           date: "wednesday 7:00",
-          iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-          humidity: response.data.main.humidity,
-          wind: response.data.wind.spead,
-          city: response.data.name,  
+          iconUrl:  response.data.condition.icon_url,
+        //   iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+        //   humidity: response.data.main.humidity,
+          wind: response.data.wind.speed,
+          city: response.data.city,  
+          ready: true,
         });
         
     }
 
-        if (weatherData, ready) {
+        if (weatherData.ready) {
             return ( 
             <div className="Weather">
                 <form>
@@ -84,14 +84,16 @@ export default function Weather(props) {
         }else {
             const apiKey = "65fb7046d82c7c4d3377a8b9tfd374o0";
             
-            let apiUrl = `https://api.shecodes.io/weather/v1/current?q=${props.defaultCity}&key=${apiKey}&units=metric`;
+            let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
             axios.get(apiUrl).then(handleResponse);
 
             return "Loading....";
             
             
         }
-        }    
+        }
+
+
 
 
 
