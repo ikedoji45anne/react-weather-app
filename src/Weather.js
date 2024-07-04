@@ -1,5 +1,6 @@
 import React,  { useState} from "react";
 import axios from  "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 
@@ -13,14 +14,13 @@ export default function Weather(props) {
 
     
     function handleResponse(response) {
-        console.log(response.data);
+        
         setWeatherData({
           temperature: response.data.temperature.current,
           description: response.data.condition.description,
-          date: "wednesday 7:00",
-          iconUrl:  response.data.condition.icon_url,
-        //   iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-        //   humidity: response.data.main.humidity,
+          date: new Date(response.data.dt *1000),
+          iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+         // humidity: response.data.main.humidity,
           wind: response.data.wind.speed,
           city: response.data.city,  
           ready: true,
@@ -45,7 +45,7 @@ export default function Weather(props) {
                         <div className="col-3">
                             <input
                             type="submit" value="search"
-                            className="btn btn-primary" w-100/>
+                            className="btn btn-primary" w-100 ="true"/>
         
                         </div>
         
@@ -53,7 +53,9 @@ export default function Weather(props) {
                 </form>
                 <h1>{weatherData.city}</h1>
                 <ul>
-                    <li>{weatherData.date}</li>
+                    <li>
+                        <FormattedDate date={weatherData.date}/>
+                    </li>
                     <li className="text capitalize">
                         {weatherData.description}</li>
                 </ul>
