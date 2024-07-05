@@ -45,15 +45,17 @@
     font-weight: 400;
 }
 
-.float-left {
+ .Weather .unit {
+    color: rgb(33, 33, 33);
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    line-height: 1;
+ }
+
+ .float-left {
     float: left;
   }
   
- .Weather .unit {
-    color: rgb(33, 33, 33);
-    font-size: 16px;
-    font-weight: 400;
-    position: relative;
-    line-height: 1;
- }
+
 
