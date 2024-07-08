@@ -10,10 +10,10 @@ import './App.css';
      <Weather defaultCity= "New york"/>
      <footer>
       
-      This project was coded by{" "} Ikedoji Anne and is{" "} 
+      This project was coded by{" "} <a href="https://github.com/ikedoji45anne/react-weather-app" target="_blank" rel="noreferrer">Ikedoji Anne</a> and is{" "} 
       <a href="https://github.com/ikedoji45anne/react-weather-app" target="_blank" rel="noreferrer">
       open-sourced on github
-      </a>
+      </a> {" "} and <a href="https://react-weather-app-4ur7.vercel.app/"  target="_blank" rel="noreferrer">hosted on Vercel</a>
      </footer>
      </div>
      
