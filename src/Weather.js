@@ -30,7 +30,7 @@ export default function Weather(props) {
           wind: response.data.wind.speed,
           city: response.data.city,  
           ready: true,
-          coordinate: response.data.coordinate,
+          coordinates: response.data.coordinates,
         });
         
     }
@@ -77,7 +77,7 @@ export default function Weather(props) {
                
                 
                 <WeatherInfo data={weatherData} />
-                <WeatherForecast  coordinate={weatherData.coordinate}/>
+                <WeatherForecast  coordinates={weatherData.coordinates}/>
                 </div>
             
             );
