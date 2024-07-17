@@ -1,37 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import WeatherIcon from "./WeatherIcon";
+import WeatherForecastDay from "./WeatherForecastDay";
 import "./WeatherForecast.css";
 import axios from "axios";
 
 
 
 export default function WeatherForecast(props) {
+    let [loaded, setLoaded] = useState(false);
+    let [forecast, setForecast] = useState(null);
     function handleResponse(response) {
         console.log(response.data);
+        setForecast(response.data.daily);
+        setLoaded(true);
     }
 
-    console.log(props);
+    if (loaded) {
     
-    let apiKey = "65fb7046d82c7c4d3377a8b9tfd374o0"
-    let longitude = props.coordinates.longitude;
-    let latitude = props.coordinates.latitude;
-    let apiUrl =`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+        return (
+            <div className="WeatherForecast">
+                <div className="row">
+                    <div className="col"> 
+                       <WeatherForecastDay data={forecast[0]} />
+                     </div>
+                      </div>
+                   </div>
+            
+            );   
+       
+    
+    } else {
+        let apiKey = "65fb7046d82c7c4d3377a8b9tfd374o0"
+        let longitude = props.coordinates.longitude;
+        let latitude = props.coordinates.latitude;
+        let apiUrl =`https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(handleResponse);
 
+        return null;
+       
 
-    return (
-<div className="WeatherForecast">
-    <div className="row">
-        <div className="col"> 
-            <div className="WeatherForecast-day">Thu</div>  
-            <WeatherIcon code="clear-sky-day"  size={36}/> 
-            <div className="WeatherForecast-temperature">
-            <span className="WeatherForecast-temperature-max">19°</span>
-            <span className="WeatherForecast-temperature-min">10°</span>
-            </div>
-         </div>
-          </div>
-       </div>
+    }
+    
+  
 
-);   
+  
 }
